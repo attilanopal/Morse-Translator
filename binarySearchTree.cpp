@@ -1,4 +1,9 @@
-// Header berisi binary search tree Npm-Nama
+/*
+======== List Bug ===============================================
+ ->  Gabisa ngeread '-' di cari Karakter (padahal di insert bisa)
+
+=================================================================
+*/
 /*
 Nama & NPM   : Muhammad Attila An Naufal - 140810200048
                Rafi Alauddin - 1408102000xx
@@ -54,9 +59,11 @@ char cariKarakter(Tree& root, string morse,int loop){
         if(root->Morse == morse ){
             return root->Char;
         }
-        if(root->Morse[loop] = '-'){
+        if(root->Morse[loop] == '-'){
+            // cout<<"Stripes!";                       // Buat nyari bug
             return cariKarakter(root->stripe,morse,++loop);
-        }else {
+        }else if (root->Morse[loop] == '.' ) {
+            // cout<<"Dots!";                          // Buat nyari bug
             return cariKarakter(root->dot,morse,++loop);
         }
     }
@@ -77,10 +84,17 @@ int main(){
     insert(dotFirst,New,loop);
     createNode(New,'I',"..");
     insert(dotFirst,New,loop);
+    createNode(New,'S',"...");
+    insert(dotFirst,New,loop);
     createNode(New,'A',".-");
     insert(dotFirst,New,loop);
+    createNode(New,'R',".-.");
+    insert(dotFirst,New,loop);
+    
 
-    cout<<"\nSearch arti dari kode morse .  : "<<cariKarakter(dotFirst,".",loop);
-    cout<<"\nSearch arti dari kode morse .. : "<<cariKarakter(dotFirst,"..",loop);
-    cout<<"\nSearch arti dari kode morse .- : "<<cariKarakter(dotFirst,".-",loop);
+    cout<<"\nSearch arti dari kode morse .   : "<<cariKarakter(dotFirst,".",loop);
+    cout<<"\nSearch arti dari kode morse .-  : "<<cariKarakter(dotFirst,".-",loop);
+    cout<<"\nSearch arti dari kode morse ..  : "<<cariKarakter(dotFirst,"..",loop);
+    cout<<"\nSearch arti dari kode morse ... : "<<cariKarakter(dotFirst,"...",loop);
+    cout<<"\nSearch arti dari kode morse .-. : "<<cariKarakter(dotFirst,".-.",loop);
 }
