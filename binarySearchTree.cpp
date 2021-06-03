@@ -6,7 +6,7 @@
 */
 /*
 Nama & NPM   : Muhammad Attila An Naufal - 140810200048
-               Rafi Alauddin - 1408102000xx
+               Rafi Alauddin - 140810200056
 Nama Header  : Binary Search Tree
 Tanggal Buat : 30 Mei 2021
 Deskripsi    : Berisi fungsi2 seputar Binary Search Tree
@@ -38,9 +38,9 @@ void insert(Tree& root,ptr New,int loop){
     cout<<"\nmasuk\t"<<loop<<"\t"<<New->Morse<<"\t"<<New->Char;              
     if (root == nullptr){
         root = New;
-    }else if (New->Morse[loop]='.'){
+    }else if (New->Morse[loop] == '.'){
         insert(root->dot, New,++loop);
-    }else {
+    }else if (New->Morse[loop] == '-'){
         insert(root->stripe,New,++loop);
     }
 }
@@ -90,6 +90,8 @@ int main(){
     insert(dotFirst,New,loop);
     createNode(New,'R',".-.");
     insert(dotFirst,New,loop);
+    createNode(New,'U',"..-");
+    insert(dotFirst,New,loop);
     
 
     cout<<"\nSearch arti dari kode morse .   : "<<cariKarakter(dotFirst,".",loop);
@@ -97,4 +99,5 @@ int main(){
     cout<<"\nSearch arti dari kode morse ..  : "<<cariKarakter(dotFirst,"..",loop);
     cout<<"\nSearch arti dari kode morse ... : "<<cariKarakter(dotFirst,"...",loop);
     cout<<"\nSearch arti dari kode morse .-. : "<<cariKarakter(dotFirst,".-.",loop);
+    cout<<"\nTesting U : "<<dotFirst->dot->stripe->Char;  // Harusnya ngeprint U (..-) Tapi malah ngeprint A (.-) [ Kayanya salah di Insert ]
 }
