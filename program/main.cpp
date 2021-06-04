@@ -61,7 +61,7 @@ int main(){
     createNode(New,'U',"..-");
     insert(morseTree,New,loop);
     
-    cout<<"\n[===================================]"
+    cout<<"\n[=======================================]"
         <<"\n\n\t[Uji Search]\n";
     // Tes insert & decode
     // Tes Decode
