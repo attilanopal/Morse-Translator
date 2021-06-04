@@ -24,8 +24,8 @@ void createNode(ptr& New, char Char, string Morse){
     New->stripe = nullptr;
 }
 
-void insert(Tree& root,ptr New,int loop){
-    cout<<"\nmasuk\t"<<loop<<"\t"<<New->Morse<<"\t"<<New->Char;              
+void insert(Tree& root,ptr New,int loop){   
+    cout<<"\n|masuk\t"<<loop<<"\t"<<New->Morse<<"\t\t"<<New->Char<<"\t|"; // buat debugging
     if (root == nullptr){
         root = New;
     }else if (New->Morse[loop] == '.'){
@@ -50,10 +50,10 @@ char decode(Tree& root, string morse,int loop){
             return root->Char;
         }
         if(morse[loop] == '-'){
-            // cout<<"[Stripes!]\t";                       // Buat nyari bug
+            // cout<<"[Stripes!]\t";                       // buat debugging
             return decode(root->stripe,morse,++loop);
         }else if (morse[loop] == '.' ) {
-            // cout<<"[Dots!]\t";                          // Buat nyari bug
+            // cout<<"[Dots!]\t";                          // buat debugging
             return decode(root->dot,morse,++loop);
         }
     }

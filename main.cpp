@@ -15,6 +15,7 @@
 
 ==================================================================================
 */
+
 /*
 Nama & NPM   : Muhammad Attila An Naufal - 140810200048
                Rafi Alauddin - 140810200056
@@ -29,35 +30,50 @@ Deskripsi    : Berisi fungsi2 seputar Binary Search Tree
 using namespace std;
 
 
+
 int main(){
     cout<<"Program Run!";       // Nandai program jalan
 
     // Inisialisasi Tree
-    Tree dotFirst = nullptr;
+    Tree morseTree = nullptr;
     ptr New = nullptr;
-    int loop = 1;
+    int loop = 0;
+    string morse;
 
+    cout<<"\n\n\t\t[Isi Tree]";
     // Nyoba masukin kode morse ke tree
-    createNode(New,'E',".");
-    insert(dotFirst,New,loop);
-    createNode(New,'I',"..");
-    insert(dotFirst,New,loop);
-    createNode(New,'S',"...");
-    insert(dotFirst,New,loop);
-    createNode(New,'A',".-");
-    insert(dotFirst,New,loop);
-    createNode(New,'R',".-.");
-    insert(dotFirst,New,loop);
-    createNode(New,'U',"..-");
-    insert(dotFirst,New,loop);
+    cout<<"\ni = banyak char dalam morse\n\n[status\ti\tmorse\t\tchar\t]"; 
+    createNode(New,'0',"start");
+    insert(morseTree,New,loop);
     
-
+    createNode(New,'E',".");
+    insert(morseTree,New,loop);
+    createNode(New,'T',"-");
+    insert(morseTree,New,loop);
+    createNode(New,'I',"..");
+    insert(morseTree,New,loop);
+    createNode(New,'S',"...");
+    insert(morseTree,New,loop);
+    createNode(New,'A',".-");
+    insert(morseTree,New,loop);
+    createNode(New,'R',".-.");
+    insert(morseTree,New,loop);
+    createNode(New,'U',"..-");
+    insert(morseTree,New,loop);
+    
+    cout<<"\n[===================================]"
+        <<"\n\n\t[Uji Search]\n";
     // Tes insert & decode
-    cout<<"\nSearch arti dari kode morse .   : "<<decode(dotFirst,".",loop);      // E
-    cout<<"\nSearch arti dari kode morse .-  : "<<decode(dotFirst,".-",loop);     // A
-    cout<<"\nSearch arti dari kode morse ..  : "<<decode(dotFirst,"..",loop);     // I
-    cout<<"\nSearch arti dari kode morse ... : "<<decode(dotFirst,"...",loop);    // S
-    cout<<"\nSearch arti dari kode morse .-. : "<<decode(dotFirst,".-.",loop);    // R
-    cout<<"\nTesting U : "<<dotFirst->dot->stripe->Char;  
-    cout<<"\nTesting R : "<<dotFirst->stripe->dot->Char;
+    // Tes Decode
+    cout<<"\nSearch arti dari kode morse .   : "<<decode(morseTree,".",loop);      // E 
+    cout<<"\nSearch arti dari kode morse .-  : "<<decode(morseTree,".-",loop);     // A
+    cout<<"\nSearch arti dari kode morse ..  : "<<decode(morseTree,"..",loop);     // I
+    cout<<"\nSearch arti dari kode morse ... : "<<decode(morseTree,"...",loop);    // S
+    cout<<"\nSearch arti dari kode morse .-. : "<<decode(morseTree,".-.",loop);    // R
+    // Tes Manual
+    cout<<"\nTesting U : "<<morseTree->dot->dot->stripe->Char;   // ..- (U)
+    cout<<"\nTesting R : "<<morseTree->dot->stripe->dot->Char;  // .-. (R)
+
+    cout<<"\nMasukkan morse : ";cin>>morse;
+    cout<<"Hasil : ";cout<<decode(morseTree,morse,loop);   
 }
