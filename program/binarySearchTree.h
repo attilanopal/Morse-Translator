@@ -59,3 +59,17 @@ char decode(Tree& root, string morse,int loop){
     }
     return '0';  // Print 0 apabila huruf tidak terdaftar dalam BST
 }
+
+string decodeText(string input,Tree root,int loop){
+    string temp,result;
+    for(int i = 0;i<input.length();i++){
+        if(input[i]!='/'){
+            temp+=input[i];
+        }else{
+            result+=decode(root,temp,0);
+            temp="";
+        }
+    }
+    result+=decode(root,temp,0);
+    return result;
+}

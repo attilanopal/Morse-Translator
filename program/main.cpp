@@ -3,6 +3,9 @@
 04/06/21 => Baikin input & cariKarakter 
          => cariKarakter(); diubah jadi decode();
          => Fungsi2 dipisah di binarySearchTree.h
+05/06/21 => Nambahin fungsi decodeText
+         => Decode Text udah bisa Tapi belom bisa nambahin spasi per kata
+         => Decode text caranya : morse/morse (ex= ..././.-./..- [Arti : seru])
 ======== List Bug ================================================================
 * Isi klo nemu * 
 
@@ -37,43 +40,43 @@ int main(){
     // Inisialisasi Tree
     Tree morseTree = nullptr;
     ptr New = nullptr;
-    int loop = 0;
     string morse;
 
     cout<<"\n\n\t\t[Isi Tree]";
     // Nyoba masukin kode morse ke tree
     cout<<"\ni = banyak char dalam morse\n\n[status\ti\tmorse\t\tchar\t]"; 
     createNode(New,'0',"start");
-    insert(morseTree,New,loop);
+    insert(morseTree,New,0);
     
     createNode(New,'E',".");
-    insert(morseTree,New,loop);
+    insert(morseTree,New,0);
     createNode(New,'T',"-");
-    insert(morseTree,New,loop);
+    insert(morseTree,New,0);
     createNode(New,'I',"..");
-    insert(morseTree,New,loop);
+    insert(morseTree,New,0);
     createNode(New,'S',"...");
-    insert(morseTree,New,loop);
+    insert(morseTree,New,0);
     createNode(New,'A',".-");
-    insert(morseTree,New,loop);
+    insert(morseTree,New,0);
     createNode(New,'R',".-.");
-    insert(morseTree,New,loop);
+    insert(morseTree,New,0);
     createNode(New,'U',"..-");
-    insert(morseTree,New,loop);
+    insert(morseTree,New,0);
     
     cout<<"\n[=======================================]"
         <<"\n\n\t[Uji Search]\n";
     // Tes insert & decode
     // Tes Decode
-    cout<<"\nSearch arti dari kode morse .   : "<<decode(morseTree,".",loop);      // E 
-    cout<<"\nSearch arti dari kode morse .-  : "<<decode(morseTree,".-",loop);     // A
-    cout<<"\nSearch arti dari kode morse ..  : "<<decode(morseTree,"..",loop);     // I
-    cout<<"\nSearch arti dari kode morse ... : "<<decode(morseTree,"...",loop);    // S
-    cout<<"\nSearch arti dari kode morse .-. : "<<decode(morseTree,".-.",loop);    // R
+    cout<<"\nSearch arti dari kode morse .   : "<<decode(morseTree,".",0);      // E 
+    cout<<"\nSearch arti dari kode morse .-  : "<<decode(morseTree,".-",0);     // A
+    cout<<"\nSearch arti dari kode morse ..  : "<<decode(morseTree,"..",0);     // I
+    cout<<"\nSearch arti dari kode morse ... : "<<decode(morseTree,"...",0);    // S
+    cout<<"\nSearch arti dari kode morse .-. : "<<decode(morseTree,".-.",0);    // R
     // Tes Manual
     cout<<"\nTesting U : "<<morseTree->dot->dot->stripe->Char;   // ..- (U)
     cout<<"\nTesting R : "<<morseTree->dot->stripe->dot->Char;  // .-. (R)
 
     cout<<"\nMasukkan morse : ";cin>>morse;
-    cout<<"Hasil : ";cout<<decode(morseTree,morse,loop);   
+    
+    cout<<"Hasil : "<<decodeText(morse,morseTree,0);
 }
