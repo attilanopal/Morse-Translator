@@ -5,6 +5,11 @@
 
 using namespace std;
 
+char listHuruf[26]{'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+
+string listMorse[26]{".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",
+                ".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
+
 struct Node{
     char Char;
     string Morse;
@@ -43,7 +48,6 @@ void inOrder(Tree& root){
     }
 }
 
-
 char decode(Tree& root, string morse,int loop){
     if(root != nullptr){
         if(root->Morse == morse ){
@@ -56,8 +60,9 @@ char decode(Tree& root, string morse,int loop){
             // cout<<"[Dots!]\t";                          // buat debugging
             return decode(root->dot,morse,++loop);
         }
-    }
-    return '0';  // Print 0 apabila huruf tidak terdaftar dalam BST
+    }else{
+    return '0';
+    }  // Print 0 apabila huruf tidak terdaftar dalam BST
 }
 
 string decodeText(string input,Tree root,int loop){
@@ -65,11 +70,20 @@ string decodeText(string input,Tree root,int loop){
     for(int i = 0;i<input.length();i++){
         if(input[i]!='/'){
             temp+=input[i];
-        }else{
+        }
+        else{
             result+=decode(root,temp,0);
             temp="";
         }
     }
     result+=decode(root,temp,0);
     return result;
+}
+
+void createData(Tree& root){
+    ptr New;
+    for(int i = 0 ; i<26; i++){
+        createNode(New,listHuruf[i],listMorse[i]);
+        insert(root,New,0);
+    }
 }

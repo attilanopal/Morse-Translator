@@ -28,8 +28,7 @@ Deskripsi    : Berisi fungsi2 seputar Binary Search Tree
 */
 #include <iostream>
 #include <string>
-#include "binarySearchTree.h"
-#include "dataMorse.h"
+#include "binarySearchTree.hpp"
 using namespace std;
 
 
@@ -40,28 +39,15 @@ int main(){
     // Inisialisasi Tree
     Tree morseTree = nullptr;
     ptr New = nullptr;
-    string morse;
+    string morse,hasil;
 
     cout<<"\n\n\t\t[Isi Tree]";
     // Nyoba masukin kode morse ke tree
     cout<<"\ni = banyak char dalam morse\n\n[status\ti\tmorse\t\tchar\t]"; 
     createNode(New,'0',"start");
     insert(morseTree,New,0);
-    
-    createNode(New,'E',".");
-    insert(morseTree,New,0);
-    createNode(New,'T',"-");
-    insert(morseTree,New,0);
-    createNode(New,'I',"..");
-    insert(morseTree,New,0);
-    createNode(New,'S',"...");
-    insert(morseTree,New,0);
-    createNode(New,'A',".-");
-    insert(morseTree,New,0);
-    createNode(New,'R',".-.");
-    insert(morseTree,New,0);
-    createNode(New,'U',"..-");
-    insert(morseTree,New,0);
+
+    createData(morseTree);
     
     cout<<"\n[=======================================]"
         <<"\n\n\t[Uji Search]\n";
@@ -77,6 +63,14 @@ int main(){
     cout<<"\nTesting R : "<<morseTree->dot->stripe->dot->Char;  // .-. (R)
 
     cout<<"\nMasukkan morse : ";cin>>morse;
-    
-    cout<<"Hasil : "<<decodeText(morse,morseTree,0);
+    hasil = decodeText(morse,morseTree,0);
+    char lagi;
+    cout<<"\nApakah ingin menambah kata? (Y/N)";cin>>lagi;
+    while(lagi == 'y' || lagi == 'Y'){
+        hasil+=' ';
+        cout<<"\nMasukkan morse : ";cin>>morse;
+        hasil+=decodeText(morse,morseTree,0);
+        cout<<"\nApakah ingin menambah kata? (Y/N)";cin>>lagi;
+    }
+    cout<<"\nHasil decrypt adalah : "<<hasil;
 }
