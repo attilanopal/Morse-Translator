@@ -30,7 +30,6 @@ void createNode(ptr& New, char Char, string Morse){
 }
 
 void insert(Tree& root,ptr New,int loop){   
-    cout<<"\n|masuk\t"<<loop<<"\t"<<New->Morse<<"\t\t"<<New->Char<<"\t|"; // buat debugging
     if (root == nullptr){
         root = New;
     }else if (New->Morse[loop] == '.'){
