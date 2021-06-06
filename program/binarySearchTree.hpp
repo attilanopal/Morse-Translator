@@ -1,14 +1,25 @@
-// Header Files berisi fungsi2 Binary Search Tree
-
+/*
+Nama & NPM   : Muhammad Attila An Naufal - 140810200048
+               Rafi Alauddin - 140810200056
+Nama Header  : Binary Search Tree
+Tanggal Buat : 30 Mei 2021
+Deskripsi    : Berisi fungsi2 seputar Binary Search Tree
+*/
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-char listHuruf[26]{'E','I','S','H','V','U','F','A','R','L','W','P','J','T','N','D','B','X','K','C','Y','M','G','Z','Q','O'};
+// 1(start) + 26(Huruf) + 10(Angka) = 37
+#define size 37 
 
-string listMorse[26]{".","..","...","....","...-","..-","..-.",".-",".-.",".-..",".--",".--.",".---","-","-.","-..","-...","-..-",
-                    "-.-","-.-.","-.--","--","--.","--..","--.-","---"};
+// List Huruf & Morse yang akan dibuat node node dalam Tree
+char listHuruf[]{'-','E','I','S','H','V','U','F','A','R','L','W','P','J','T','N','D','B','X','K','C','Y','M','G','Z','Q','O','9','8','7','6','5','4','3','2','1','0'};
+
+string listMorse[]{"start",".","..","...","....","...-","..-","..-.",".-",".-.",".-..",".--",".--.",".---","-","-.","-..","-...","-..-",
+                    "-.-","-.-.","-.--","--","--.","--..","--.-","---","----.","---..","--...","-....",".....","....-","...--","..---",".----","-----"};
+
+
 
 struct Node{
     char Char;
@@ -30,6 +41,7 @@ void createNode(ptr& New, char Char, string Morse){
 }
 
 void insert(Tree& root,ptr New,int loop){   
+    // cout<<"\nMasuk\t"<<New->Morse<<" \t= "<<New->Char; // Buat ngecek data yg diinput udah bener
     if (root == nullptr){
         root = New;
     }else if (New->Morse[loop] == '.'){
@@ -53,15 +65,13 @@ char decode(Tree& root, string morse,int loop){
             return root->Char;
         }
         if(morse[loop] == '-'){
-            // cout<<"[Stripes!]\t";                       // buat debugging
             return decode(root->stripe,morse,++loop);
-        }else if (morse[loop] == '.' ) {
-            // cout<<"[Dots!]\t";                          // buat debugging
+        }else {
             return decode(root->dot,morse,++loop);
         }
     }else{
-    return '0';
-    }  // Print 0 apabila huruf tidak terdaftar dalam BST
+    return '!';
+    }  // Print ! apabila huruf tidak terdaftar dalam BST
 }
 
 string decodeText(string input,Tree root,int loop){
@@ -81,7 +91,7 @@ string decodeText(string input,Tree root,int loop){
 
 void createData(Tree& root){
     ptr New;
-    for(int i = 0 ; i<26; i++){
+    for(int i = 0 ; i<size; i++){
         createNode(New,listHuruf[i],listMorse[i]);
         insert(root,New,0);
     }
