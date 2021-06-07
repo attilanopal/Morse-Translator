@@ -3,7 +3,9 @@
 Karena menggunakan kombinasi titik dan garis, maka sulit bagi kita untuk langsung mengartikannya. Oleh karena itu, program Morse Decipher dibuat agar dapat mempermudah proses menerjemahkan Sandi Morse.
 
 ## Cara Kerja : 
- Program ini menggunakan *Binary Search Tree* untuk menyimpan huruf-huruf dalam bentuk morse maupun alfabet.
+ Program ini menggunakan *Binary Search Tree* untuk menyimpan huruf-huruf dalam bentuk morse maupun alfabet. Oleh karena itu Fungsi Binary Search Tree Harus diubah agar mampu menyimpan kode morse dan alfabet.
+
+ Umumnya *Binary Search Tree* menggunakan angka untuk memposisikan data datanya. Apabila lebih rendah dari parentnya maka diletakkan di kiri, apabila lebih besar maka diletakkan di kanan parentnya. 
 
 ## Anggota Kelompok:
 * M. ATTILA AN-NAUFAL (140810200048)
