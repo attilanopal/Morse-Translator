@@ -70,6 +70,7 @@ int main(){
         //masukin codingan reverse nya til
 
     default:
+        cout<<"Pilihan Anda tidak tersedia";
         break;
     }
 
