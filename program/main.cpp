@@ -1,25 +1,4 @@
 /*
-======== Update ===================================================================
-04/06/21 => Baikin input & cariKarakter 
-         => cariKarakter(); diubah jadi decode();
-         => Fungsi2 dipisah di binarySearchTree.h
-05/06/21 => Nambahin fungsi decodeText
-         => Decode Text udah bisa Tapi belom bisa nambahin spasi per kata
-         => Decode text caranya : morse/morse (ex= ..././.-./..- [Arti : seru])
-======== List Bug ================================================================
-* Isi klo nemu * 
-
-
-======= To-Do List ===============================================================
--> Isi dataMorse.h 
--> Buat tampilan menu
--> Sistem input & output
-
-
-==================================================================================
-*/
-
-/*
 Nama & NPM   : Muhammad Attila An Naufal - 140810200048
                Rafi Alauddin - 140810200056
 Nama Header  : Morse Decipher
