@@ -54,7 +54,7 @@ void insert(Tree& root,ptr New,int loop){
 void inOrder(Tree& root){       
     if(root!=nullptr){
         inOrder(root->dot);
-        cout<<"\nChar : "<<root->Char;
+        cout<<"\nHuruf :\t"<<root->Char<<"\tMorse :\t"<<root->Morse;
         inOrder(root->stripe);
     }
 }
@@ -89,7 +89,7 @@ string decodeText(string input,Tree root,int loop){
     return result;
 }
 
-void createData(Tree& root){
+void createDataMorse(Tree& root){
     ptr New;
     for(int i = 0 ; i<size; i++){
         createNode(New,listHuruf[i],listMorse[i]);
