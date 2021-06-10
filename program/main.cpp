@@ -22,13 +22,13 @@
 /*
 Nama & NPM   : Muhammad Attila An Naufal - 140810200048
                Rafi Alauddin - 140810200056
-Nama Header  : Binary Search Tree
+Nama Header  : Morse Decipher
 Tanggal Buat : 30 Mei 2021
-Deskripsi    : Berisi fungsi2 seputar Binary Search Tree
+Deskripsi    : Program decrypt morse 
 */
 #include <iostream>
 #include <string>
-#include "binarySearchTree.hpp"
+#include "binarySearchTree.hpp" 
 using namespace std;
 
 
